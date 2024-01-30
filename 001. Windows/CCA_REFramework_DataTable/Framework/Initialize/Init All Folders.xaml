@@ -1,0 +1,185 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Init_All_Folders" this:Init_All_Folders.In_Arr_FolderName="[{&quot;Input&quot;, &quot;Output&quot;}]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_Arr_FolderName" Type="InArgument(s:String[])" />
+    <x:Property Name="IO_Dic_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>955,2274</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Init_All_Folders_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="48">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="[ Init All Folders ]&#xA;# Each Folder Name Of 'In_Arr_FolderName'&#xA;→ Create On Data Folder And Placeholder.txt&#xA;&#xA;- IO_Dic_Config(FolderName + &quot;FolderPath&quot;) : Folder Path" DisplayName="Init All Folders" sap:VirtualizedContainerService.HintSize="644,2209" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:CurrentJobInfo" Name="Cji_Workflow" />
+      <Variable x:TypeArguments="x:String" Name="Str_CurrentDirectory" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:GetCurrentJobInfo sap2010:Annotation.AnnotationText="- Cji_Workflow" DisplayName="Get Current Job Info" sap:VirtualizedContainerService.HintSize="582,56" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[Cji_Workflow]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetCurrentJobInfo>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="582,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&#xA;&#x9;&quot;[ {0} ] Start Process&quot;,&#xA;&#x9;Cji_Workflow.WorkflowName&#xA;)]" />
+    <ui:GetEnvironmentVariable sap2010:Annotation.AnnotationText="- Str_CurrentDirectory" DisplayName="Current Directory_Get Environment Variable" sap:VirtualizedContainerService.HintSize="582,91" sap2010:WorkflowViewState.IdRef="GetEnvironmentVariable_1" Variable="CurrentDirectory" VariableValue="[Str_CurrentDirectory]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetEnvironmentVariable>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="[ Create Folder And Set Config Dictionary ]&#xA;# Each Folder Of In_Arr_FolderName" DisplayName="Create Folder And Set Config Dictionary_For Each" sap:VirtualizedContainerService.HintSize="582,1520" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[In_Arr_FolderName]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="FolderName" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Create Folder And Set Config Dictionary_Body" sap:VirtualizedContainerService.HintSize="546,1353" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap2010:Annotation.AnnotationText="- IO_Dic_Config&#xA;(FolderName + &quot;FolderPath&quot;)&#xA;&#xA;: Path.Combine&#xA;: Str_CurrentDirectory&#xA;: 'Data'&#xA;: FolderName" DisplayName="Set Config Folder Value_Assign" sap:VirtualizedContainerService.HintSize="484,182" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Object">[IO_Dic_Config(FolderName + "FolderPath")]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Object" xml:space="preserve">[Path.Combine(
+	Str_CurrentDirectory,
+	"Data",
+	FolderName.Trim
+).ToString]</InArgument>
+              </Assign.Value>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Assign>
+            <If sap2010:Annotation.AnnotationText="[ Aleady Exist Folder ]&#xA;# Folder Path Aleady Exist&#xA;→ Delete Folder" Condition="[Directory.Exists(IO_Dic_Config(FolderName + &quot;FolderPath&quot;).ToString)]" DisplayName="Aleady Exist Folder_IF" sap:VirtualizedContainerService.HintSize="484,447" sap2010:WorkflowViewState.IdRef="If_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <ui:DeleteFolderX sap2010:Annotation.AnnotationText="- IO_Dic_Config(FolderName + &quot;FolderPath&quot;)" DisplayName="Exist Folder_Delete Folder" sap:VirtualizedContainerService.HintSize="334,111" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Path="[IO_Dic_Config(FolderName + &quot;FolderPath&quot;).ToString]" Recursive="True">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:DeleteFolderX>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Aleady Exist Folder_Else" sap:VirtualizedContainerService.HintSize="400,103" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" sap2010:Annotation.AnnotationText="- IO_Dic_Config(FolderName + &quot;FolderPath&quot;)" DisplayName="New Folder_Create Folder" sap:VirtualizedContainerService.HintSize="484,111" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[IO_Dic_Config(FolderName + &quot;FolderPath&quot;).ToString]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CreateDirectory>
+            <ui:WriteTextFile File="{x:Null}" sap2010:Annotation.AnnotationText="- Text&#xA;: Foldername + &quot;Placeholder&quot;&#xA;&#xA;- File Name&#xA;: Path.Combine&#xA;: IO_Dic_Config(FolderName + &quot;FolderPath&quot;)&#xA;: &quot;placeholder.txt&quot;" DisplayName="Set Placeholder Text File_Write Text File" FileName="[Path.Combine(&#xA;&#x9;IO_Dic_Config(FolderName + &quot;FolderPath&quot;).ToString,&#xA;&#x9;&quot;placeholder.txt&quot;&#xA;)]" sap:VirtualizedContainerService.HintSize="484,250" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[FolderName + &quot;Placeholder&quot;]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:WriteTextFile>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[String.Format(&#xA;&#x9;&quot;[ {0} ] Create Initialize Folder&quot; +&#xA;&#x9;&quot; , Folder Name : {1}&quot; + &#xA;&#x9;&quot; , Config Folder Key : '{2}'&quot;,&#xA;&#x9;Cji_Workflow.WorkflowName,&#xA;&#x9;FolderName,&#xA;&#x9;FolderName + &quot;FolderPath&quot;&#xA;)]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="582,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[String.Format(&#xA;&#x9;&quot;[ {0} ] Complete Process&quot;,&#xA;&#x9;Cji_Workflow.WorkflowName&#xA;)]" />
+  </Sequence>
+</Activity>
